@@ -13,23 +13,23 @@ import java.util.List;
 
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Component
 @Entity
-@Table(name = "User",schema = "projectone")
-public class User implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String username, password;
+    private Role role;
+    @OneToOne
+    private Cart cart;
 
-
-    private int userId;
-    private String email;
-    private String password;
-    private List<Item> CartList;
-
-
-
-
-
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }
+
+

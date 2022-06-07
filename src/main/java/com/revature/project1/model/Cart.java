@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 ;
 
 
@@ -16,16 +17,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Component
 @Entity
-@Table(name = "Cart",schema = "projectone")
+@Table(name = "Cart",schema = "project1")
 
 public class Cart implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cartId;
-    private int userId;
-    private int ItemId;
 
-    @Column(name = "CartId")
-    private Cart cart;
+    @OneToOne(mappedBy = "cart")
+    private User user;
+    @OneToMany(mappedBy = "cart")
+    private List<Item> item;
+
 
 
 
