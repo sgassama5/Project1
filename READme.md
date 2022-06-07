@@ -8,7 +8,7 @@ For that We have an EC2 instances, a RDS and a S3 buckect for th deployment.
 
 **RDS
 username: root
-password: Senegal1
+password: *******
 url:jdbc:postgresql:// database-2.cjvcr4m8x6u6.us-east-1.rds.amazonaws.com:5432/postgres
 
 ** Access
